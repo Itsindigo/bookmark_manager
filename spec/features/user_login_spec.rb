@@ -1,7 +1,6 @@
 require 'web_helper'
 
 feature 'user login' do
-
   scenario 'user count increases by 1 when user creates account' do
     create_account
     expect{create_account}.to change(User, :count).by(1)
@@ -17,5 +16,4 @@ feature 'user login' do
     user = User.first
     expect(user.email).to eq("test@test.com")
   end
-
 end

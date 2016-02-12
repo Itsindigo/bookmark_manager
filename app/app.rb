@@ -40,20 +40,20 @@ set :session_secret, 'super secret'
   end
 
   post '/signup' do
-    User.create(email: params[:email],
+    user = User.create(email: params[:email],
                 password: params[:password])
     session[:user_id] = user.id
     redirect '/signup/confirmation'
+  end
+
+  get '/signup/confirmation' do
+    erb :'links/confirmation'
   end
 
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
-  end
-
-  get '/confirmation' do
-    erb :'confirmation'
   end
 
   # start the server if ruby file executed directly
