@@ -1,0 +1,23 @@
+<html>
+  <head>
+  
+  </head>
+
+  <body>
+    <form action="/users" method="post">
+      <label for="email">
+        Email address: <input type="text" name="email"/>
+      </label>
+      <label for="password">
+        Password: <input type="password" name="password"/>
+      </label>
+      <label for="password_confirmation">
+        Password confirmation: <input type="password" name="password_confirmation">
+      </label>
+      <input type="submit" name="submit" value="Sign up"/>
+    </form>
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+  </body>
+</html
